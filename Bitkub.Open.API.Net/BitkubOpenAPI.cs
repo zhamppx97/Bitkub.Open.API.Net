@@ -6,10 +6,10 @@ namespace Bitkub.Open.API.Net
 {
     public class BitkubOpenAPI
     {
+        private static readonly IAPIService _apiService = new APIService();
+
         public class API
         {
-            private readonly IAPIService _apiService = new APIService();
-
             public async Task<string> GetStatusAsync()
             {
                 return await _apiService.EndpointStatusAsync();
@@ -18,6 +18,14 @@ namespace Bitkub.Open.API.Net
             public async Task<string> GetServerTimeAsync()
             {
                 return await _apiService.EndpointServerTimeAsync();
+            }
+        }
+
+        public class Market
+        {
+            public async Task<string> GetSymbolsAsync()
+            {
+                return await _apiService.EndpointMarketSymbolsAsync();
             }
         }
     }

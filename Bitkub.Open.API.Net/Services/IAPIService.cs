@@ -6,5 +6,7 @@ namespace Bitkub.Open.API.Net.Services
     {
         Task<string> EndpointStatusAsync();
         Task<string> EndpointServerTimeAsync();
+
+        Task<string> EndpointMarketSymbolsAsync();
     }
 }
