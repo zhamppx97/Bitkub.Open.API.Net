@@ -15,7 +15,6 @@ namespace Bitkub.Open.API.Net
         {
             return await _apiService.EndpointStatusAsync();
         }
-
         /// <summary>
         /// Get server timestamp
         /// </summary>

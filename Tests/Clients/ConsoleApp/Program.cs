@@ -11,6 +11,7 @@ namespace ConsoleApp
             StatusAsync().Wait();
             ServerTimeAsync().Wait();
             MarketSymbolsAsync().Wait();
+            MarketTickerAsync().Wait();
         }
 
         static async Task StatusAsync()
@@ -31,6 +32,14 @@ namespace ConsoleApp
         {
             IBitkubMarket market = new BitkubMarket();
             var result = await market.GetSymbolsAsync();
+            Console.WriteLine(result);
+        }
+
+        static async Task MarketTickerAsync()
+        {
+            IBitkubMarket market = new BitkubMarket();
+            string sym = null; // ex THB_BTC
+            var result = await market.GetTickerAsync(sym);
             Console.WriteLine(result);
         }
     }

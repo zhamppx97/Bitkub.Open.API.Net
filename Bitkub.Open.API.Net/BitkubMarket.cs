@@ -15,9 +15,9 @@ namespace Bitkub.Open.API.Net
         {
             return await _apiService.EndpointMarketSymbolsAsync();
         }
-
         /// <summary>
-        /// Get ticker information
+        /// Get ticker information, String symbol (optional)
+        /// List all ticker by the string symbol is empty 
         /// </summary>
         /// <param name="symbol">String The symbol (optional)</param>
         /// <returns>Ticker information</returns>
