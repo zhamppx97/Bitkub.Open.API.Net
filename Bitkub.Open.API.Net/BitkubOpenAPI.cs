@@ -14,6 +14,11 @@ namespace Bitkub.Open.API.Net
             {
                 return await _apiService.EndpointStatusAsync();
             }
+
+            public async Task<string> GetServerTime()
+            {
+                return await _apiService.EndpointServerTimeAsync();
+            }
         }
     }
 }

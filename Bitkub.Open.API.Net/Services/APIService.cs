@@ -27,5 +27,18 @@ namespace Bitkub.Open.API.Net.Services
             var responseJsonString = JsonConvert.SerializeObject(response.Content);
             return responseJsonString;
         }
+
+        public virtual async Task<string> EndpointServerTimeAsync()
+        {
+            var url = Endpoints.API.ServerTime(_serviceBaseUrl);
+            var client = new RestClient(url)
+            {
+                Timeout = -1
+            };
+            var request = new RestRequest(Method.GET);
+            var response = await client.ExecuteAsync(request);
+            var responseJsonString = JsonConvert.SerializeObject(response.Content);
+            return responseJsonString;
+        }
     }
 }
