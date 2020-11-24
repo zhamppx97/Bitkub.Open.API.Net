@@ -6,16 +6,25 @@ namespace ConsoleApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             StatusAsync().Wait();
+            ServerTimeAsync().Wait();
         }
 
         static async Task StatusAsync()
         {
-            BitkubOpenAPI.API bitkubOpenApi = new BitkubOpenAPI.API();
+            BitkubOpenAPI.API api = new BitkubOpenAPI.API();
 
-            var result = await bitkubOpenApi.GetStatusAsync();
+            var result = await api.GetStatusAsync();
+            Console.WriteLine(result);
+        }
+
+        static async Task ServerTimeAsync()
+        {
+            BitkubOpenAPI.API api = new BitkubOpenAPI.API();
+
+            var result = await api.GetServerTimeAsync();
             Console.WriteLine(result);
         }
     }
