@@ -15,21 +15,21 @@ namespace ConsoleApp
 
         static async Task StatusAsync()
         {
-            BitkubOpenAPI.API api = new BitkubOpenAPI.API();
+            IBitkubAPIStatus api = new BitkubAPIStatus();
             var result = await api.GetStatusAsync();
             Console.WriteLine(result);
         }
 
         static async Task ServerTimeAsync()
         {
-            BitkubOpenAPI.API api = new BitkubOpenAPI.API();
+            IBitkubAPIStatus api = new BitkubAPIStatus();
             var result = await api.GetServerTimeAsync();
             Console.WriteLine(result);
         }
 
         static async Task MarketSymbolsAsync()
         {
-            BitkubOpenAPI.Market market = new BitkubOpenAPI.Market();
+            IBitkubMarket market = new BitkubMarket();
             var result = await market.GetSymbolsAsync();
             Console.WriteLine(result);
         }
