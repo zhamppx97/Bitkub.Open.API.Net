@@ -8,5 +8,6 @@ namespace Bitkub.Open.API.Net.Services
         Task<string> EndpointServerTimeAsync();
 
         Task<string> EndpointMarketSymbolsAsync();
+        Task<string> EndpointMarketTickerAsync(string symbol);
     }
 }

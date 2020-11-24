@@ -5,5 +5,6 @@ namespace Bitkub.Open.API.Net
     public partial interface IBitkubMarket
     {
         Task<string> GetSymbolsAsync();
+        Task<string> GetTickerAsync(string symbol);
     }
 }

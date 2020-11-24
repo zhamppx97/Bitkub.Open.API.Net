@@ -53,5 +53,19 @@ namespace Bitkub.Open.API.Net.Services
             var responseJsonString = JsonConvert.SerializeObject(response.Content);
             return responseJsonString;
         }
+
+        public virtual async Task<string> EndpointMarketTickerAsync(string symbol)
+        {
+            var url = Endpoints.Market.Ticker(_serviceBaseUrl);
+            var client = new RestClient(url)
+            {
+                Timeout = -1
+            };
+            var request = new RestRequest(Method.GET);
+            request.AddParameter("sym", symbol, ParameterType.QueryString);
+            var response = await client.ExecuteAsync(request);
+            var responseJsonString = JsonConvert.SerializeObject(response.Content);
+            return responseJsonString;
+        }
     }
 }

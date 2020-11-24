@@ -7,9 +7,23 @@ namespace Bitkub.Open.API.Net
     {
         private readonly IAPIService _apiService = new APIService();
 
+        /// <summary>
+        /// List all available symbols
+        /// </summary>
+        /// <returns>All available symbols</returns>
         public virtual async Task<string> GetSymbolsAsync()
         {
             return await _apiService.EndpointMarketSymbolsAsync();
+        }
+
+        /// <summary>
+        /// Get ticker information
+        /// </summary>
+        /// <param name="symbol">String The symbol (optional)</param>
+        /// <returns>Ticker information</returns>
+        public virtual async Task<string> GetTickerAsync(string symbol)
+        {
+            return await _apiService.EndpointMarketTickerAsync(symbol);
         }
     }
 }
