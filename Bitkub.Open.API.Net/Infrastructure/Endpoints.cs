@@ -9,7 +9,6 @@ namespace Bitkub.Open.API.Net.Infrastructure
             {
                 return $"{baseUrl}/api/status";
             }
-
             public static string ServerTime(string baseUrl)
             {
                 return $"{baseUrl}/api/servertime";
@@ -22,10 +21,13 @@ namespace Bitkub.Open.API.Net.Infrastructure
             {
                 return $"{baseUrl}/api/market/symbols";
             }
-
             public static string Ticker(string baseUrl)
             {
                 return $"{baseUrl}/api/market/ticker";
+            }
+            public static string Trades(string baseUrl)
+            {
+                return $"{baseUrl}/api/market/trades";
             }
         }
     }

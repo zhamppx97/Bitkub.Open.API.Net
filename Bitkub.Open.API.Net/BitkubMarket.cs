@@ -25,5 +25,15 @@ namespace Bitkub.Open.API.Net
         {
             return await _apiService.EndpointMarketTickerAsync(symbol);
         }
+        /// <summary>
+        /// List recent trades
+        /// </summary>
+        /// <param name="symbol">The symbol</param>
+        /// <param name="limit">No. of limit to query recent trades</param>
+        /// <returns>Recent trades</returns>
+        public virtual async Task<string> GetTradesAsync(string symbol, int limit)
+        {
+            return await _apiService.EndpointMarketTradesAsync(symbol, limit);
+        }
     }
 }
