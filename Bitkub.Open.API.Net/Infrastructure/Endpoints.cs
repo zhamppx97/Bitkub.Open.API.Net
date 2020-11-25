@@ -29,6 +29,26 @@ namespace Bitkub.Open.API.Net.Infrastructure
             {
                 return $"{baseUrl}/api/market/trades";
             }
+            public static string Bids(string baseUrl)
+            {
+                return $"{baseUrl}/api/market/bids";
+            }
+            public static string Asks(string baseUrl)
+            {
+                return $"{baseUrl}/api/market/asks";
+            }
+            public static string Books(string baseUrl)
+            {
+                return $"{baseUrl}/api/market/books";
+            }
+            public static string Tradingview(string baseUrl)
+            {
+                return $"{baseUrl}/api/market/tradingview";
+            }
+            public static string Depth(string baseUrl)
+            {
+                return $"{baseUrl}/api/market/depth";
+            }
         }
     }
 }
