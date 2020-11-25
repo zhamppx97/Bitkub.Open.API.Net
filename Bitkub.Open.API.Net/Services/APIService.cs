@@ -82,5 +82,35 @@ namespace Bitkub.Open.API.Net.Services
             var responseJsonString = JsonConvert.SerializeObject(response.Content);
             return responseJsonString;
         }
+
+        public virtual async Task<string> EndpointMarketBidsAsync(string symbol, int limit)
+        {
+            var url = Endpoints.Market.Bids(_serviceBaseUrl);
+            var client = new RestClient(url)
+            {
+                Timeout = -1
+            };
+            var request = new RestRequest(Method.GET);
+            request.AddParameter("sym", symbol, ParameterType.QueryString);
+            request.AddParameter("lmt", limit, ParameterType.QueryString);
+            var response = await client.ExecuteAsync(request);
+            var responseJsonString = JsonConvert.SerializeObject(response.Content);
+            return responseJsonString;
+        }
+
+        public virtual async Task<string> EndpointMarketAsksAsync(string symbol, int limit)
+        {
+            var url = Endpoints.Market.Asks(_serviceBaseUrl);
+            var client = new RestClient(url)
+            {
+                Timeout = -1
+            };
+            var request = new RestRequest(Method.GET);
+            request.AddParameter("sym", symbol, ParameterType.QueryString);
+            request.AddParameter("lmt", limit, ParameterType.QueryString);
+            var response = await client.ExecuteAsync(request);
+            var responseJsonString = JsonConvert.SerializeObject(response.Content);
+            return responseJsonString;
+        }
     }
 }

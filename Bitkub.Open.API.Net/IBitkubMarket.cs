@@ -23,5 +23,19 @@ namespace Bitkub.Open.API.Net
         /// <param name="limit">No. of limit to query recent trades</param>
         /// <returns>Recent trades</returns>
         Task<string> GetTradesAsync(string symbol, int limit);
+        /// <summary>
+        /// List open buy orders
+        /// </summary>
+        /// <param name="symbol">The symbol</param>
+        /// <param name="limit">No. of limit to query open buy orders</param>
+        /// <returns>Open buy orders</returns>
+        Task<string> GetBidsAsync(string symbol, int limit);
+        /// <summary>
+        /// List open sell orders
+        /// </summary>
+        /// <param name="symbol">The symbol</param>
+        /// <param name="limit">No. of limit to query open sell orders</param>
+        /// <returns>Open sell orders</returns>
+        Task<string> GetAsksAsync(string symbol, int limit);
     }
 }
