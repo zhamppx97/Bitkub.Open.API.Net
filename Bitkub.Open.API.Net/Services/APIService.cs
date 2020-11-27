@@ -41,6 +41,7 @@ namespace Bitkub.Open.API.Net.Services
             return responseJsonString;
         }
 
+        #region Non-Secure endpoints
         public virtual async Task<string> EndpointMarketSymbolsAsync()
         {
             var url = Endpoints.Market.Symbols(_serviceBaseUrl);
@@ -159,5 +160,7 @@ namespace Bitkub.Open.API.Net.Services
             var responseJsonString = JsonConvert.SerializeObject(response.Content);
             return responseJsonString;
         }
+        #endregion
+
     }
 }

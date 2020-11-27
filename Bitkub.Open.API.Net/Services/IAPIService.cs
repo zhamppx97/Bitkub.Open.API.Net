@@ -7,6 +7,7 @@ namespace Bitkub.Open.API.Net.Services
         Task<string> EndpointStatusAsync();
         Task<string> EndpointServerTimeAsync();
 
+        #region Non-Secure endpoints
         Task<string> EndpointMarketSymbolsAsync();
         Task<string> EndpointMarketTickerAsync(string symbol);
         Task<string> EndpointMarketTradesAsync(string symbol, int limit);
@@ -15,5 +16,7 @@ namespace Bitkub.Open.API.Net.Services
         Task<string> EndpointMarketBooksAsync(string symbol, int limit);
         Task<string> EndpointMarketTradingviewAsync(string symbol, int chartInterval, int timeStampFrom, int timeStampTo);
         Task<string> EndpointMarketDepthAsync(string symbol, int limit);
+        #endregion
+
     }
 }
