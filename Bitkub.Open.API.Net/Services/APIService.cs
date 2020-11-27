@@ -112,5 +112,52 @@ namespace Bitkub.Open.API.Net.Services
             var responseJsonString = JsonConvert.SerializeObject(response.Content);
             return responseJsonString;
         }
+
+        public virtual async Task<string> EndpointMarketBooksAsync(string symbol, int limit)
+        {
+            var url = Endpoints.Market.Books(_serviceBaseUrl);
+            var client = new RestClient(url)
+            {
+                Timeout = -1
+            };
+            var request = new RestRequest(Method.GET);
+            request.AddParameter("sym", symbol, ParameterType.QueryString);
+            request.AddParameter("lmt", limit, ParameterType.QueryString);
+            var response = await client.ExecuteAsync(request);
+            var responseJsonString = JsonConvert.SerializeObject(response.Content);
+            return responseJsonString;
+        }
+
+        public virtual async Task<string> EndpointMarketTradingviewAsync(string symbol, int chartInterval, int timeStampFrom, int timeStampTo)
+        {
+            var url = Endpoints.Market.Tradingview(_serviceBaseUrl);
+            var client = new RestClient(url)
+            {
+                Timeout = -1
+            };
+            var request = new RestRequest(Method.GET);
+            request.AddParameter("sym", symbol, ParameterType.QueryString);
+            request.AddParameter("int", chartInterval, ParameterType.QueryString);
+            request.AddParameter("frm", timeStampFrom, ParameterType.QueryString);
+            request.AddParameter("to", timeStampTo, ParameterType.QueryString);
+            var response = await client.ExecuteAsync(request);
+            var responseJsonString = JsonConvert.SerializeObject(response.Content);
+            return responseJsonString;
+        }
+
+        public virtual async Task<string> EndpointMarketDepthAsync(string symbol, int limit)
+        {
+            var url = Endpoints.Market.Depth(_serviceBaseUrl);
+            var client = new RestClient(url)
+            {
+                Timeout = -1
+            };
+            var request = new RestRequest(Method.GET);
+            request.AddParameter("sym", symbol, ParameterType.QueryString);
+            request.AddParameter("lmt", limit, ParameterType.QueryString);
+            var response = await client.ExecuteAsync(request);
+            var responseJsonString = JsonConvert.SerializeObject(response.Content);
+            return responseJsonString;
+        }
     }
 }

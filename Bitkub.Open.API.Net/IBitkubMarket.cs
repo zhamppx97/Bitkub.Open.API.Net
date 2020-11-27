@@ -37,5 +37,28 @@ namespace Bitkub.Open.API.Net
         /// <param name="limit">No. of limit to query open sell orders</param>
         /// <returns>Open sell orders</returns>
         Task<string> GetAsksAsync(string symbol, int limit);
+        /// <summary>
+        /// List all open orders
+        /// </summary>
+        /// <param name="symbol">The symbol</param>
+        /// <param name="limit">No. of limit to query open orders</param>
+        /// <returns>All open oders</returns>
+        Task<string> GetBookAsync(string symbol, int limit);
+        /// <summary>
+        /// Get tradingview data for displaying tradingview graph
+        /// </summary>
+        /// <param name="symbol">The symbol</param>
+        /// <param name="chartInterval">Chart interval in seconds (e.g. 60, 900, 3600, 86400)</param>
+        /// <param name="timeStampFrom">Timestamp of the starting time (e.g. 1574477162)</param>
+        /// <param name="timeStampTo">Timestamp of the ending time (e.g. 1575773222)</param>
+        /// <returns>Tradingview data</returns>
+        Task<string> GetTradingviewAsync(string symbol, int chartInterval, int timeStampFrom, int timeStampTo);
+        /// <summary>
+        /// Get depth information
+        /// </summary>
+        /// <param name="symbol">The symbol</param>
+        /// <param name="limit">Depth size</param>
+        /// <returns>Depth information</returns>
+        Task<string> GetDepthAsync(string symbol, int limit);
     }
 }

@@ -55,5 +55,37 @@ namespace Bitkub.Open.API.Net
         {
             return await _apiService.EndpointMarketAsksAsync(symbol, limit);
         }
+        /// <summary>
+        /// List all open orders
+        /// </summary>
+        /// <param name="symbol">The symbol</param>
+        /// <param name="limit">No. of limit to query open orders</param>
+        /// <returns>All open oders</returns>
+        public virtual async Task<string> GetBookAsync(string symbol, int limit)
+        {
+            return await _apiService.EndpointMarketBooksAsync(symbol, limit);
+        }
+        /// <summary>
+        /// Get tradingview data for displaying tradingview graph
+        /// </summary>
+        /// <param name="symbol">The symbol</param>
+        /// <param name="chartInterval">Chart interval in seconds (e.g. 60, 900, 3600, 86400)</param>
+        /// <param name="timeStampFrom">Timestamp of the starting time (e.g. 1574477162)</param>
+        /// <param name="timeStampTo">Timestamp of the ending time (e.g. 1575773222)</param>
+        /// <returns>Tradingview data</returns>
+        public virtual async Task<string> GetTradingviewAsync(string symbol, int chartInterval, int timeStampFrom, int timeStampTo)
+        {
+            return await _apiService.EndpointMarketTradingviewAsync(symbol, chartInterval, timeStampFrom, timeStampTo);
+        }
+        /// <summary>
+        /// Get depth information
+        /// </summary>
+        /// <param name="symbol">The symbol</param>
+        /// <param name="limit">Depth size</param>
+        /// <returns>Depth information</returns>
+        public virtual async Task<string> GetDepthAsync(string symbol, int limit)
+        {
+            return await _apiService.EndpointMarketDepthAsync(symbol, limit);
+        }
     }
 }

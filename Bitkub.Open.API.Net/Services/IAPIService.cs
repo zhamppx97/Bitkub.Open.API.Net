@@ -12,5 +12,8 @@ namespace Bitkub.Open.API.Net.Services
         Task<string> EndpointMarketTradesAsync(string symbol, int limit);
         Task<string> EndpointMarketBidsAsync(string symbol, int limit);
         Task<string> EndpointMarketAsksAsync(string symbol, int limit);
+        Task<string> EndpointMarketBooksAsync(string symbol, int limit);
+        Task<string> EndpointMarketTradingviewAsync(string symbol, int chartInterval, int timeStampFrom, int timeStampTo);
+        Task<string> EndpointMarketDepthAsync(string symbol, int limit);
     }
 }
