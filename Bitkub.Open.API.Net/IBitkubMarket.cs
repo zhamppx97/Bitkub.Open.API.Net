@@ -43,7 +43,7 @@ namespace Bitkub.Open.API.Net
         /// <param name="symbol">The symbol</param>
         /// <param name="limit">No. of limit to query open orders</param>
         /// <returns>All open oders</returns>
-        Task<string> GetBookAsync(string symbol, int limit);
+        Task<string> GetBooksAsync(string symbol, int limit);
         /// <summary>
         /// Get tradingview data for displaying tradingview graph
         /// </summary>

@@ -61,7 +61,7 @@ namespace Bitkub.Open.API.Net
         /// <param name="symbol">The symbol</param>
         /// <param name="limit">No. of limit to query open orders</param>
         /// <returns>All open oders</returns>
-        public virtual async Task<string> GetBookAsync(string symbol, int limit)
+        public virtual async Task<string> GetBooksAsync(string symbol, int limit)
         {
             return await _apiService.EndpointMarketBooksAsync(symbol, limit);
         }
