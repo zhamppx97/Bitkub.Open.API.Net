@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using Bitkub.Open.API.Net.Models;
+using System.Threading.Tasks;
 
 namespace Bitkub.Open.API.Net
 {
@@ -8,11 +9,11 @@ namespace Bitkub.Open.API.Net
         /// Get endpoint status. When status is not ok, it is highly recommended to wait until the status changes back to ok
         /// </summary>
         /// <returns>Endpoint status</returns>
-        Task<string> GetStatusAsync();
+        Task<APIResponseStatus> GetStatusAsync();
         /// <summary>
         /// Get server timestamp
         /// </summary>
         /// <returns>Server timestamp</returns>
-        Task<string> GetServerTimeAsync();
+        Task<APIResponseTimeStamp> GetServerTimeAsync();
     }
 }

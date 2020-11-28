@@ -1,4 +1,5 @@
-﻿using Bitkub.Open.API.Net.Services;
+﻿using Bitkub.Open.API.Net.Models;
+using Bitkub.Open.API.Net.Services;
 using System.Threading.Tasks;
 
 namespace Bitkub.Open.API.Net
@@ -11,7 +12,7 @@ namespace Bitkub.Open.API.Net
         /// List all available symbols
         /// </summary>
         /// <returns>All available symbols</returns>
-        public virtual async Task<string> GetSymbolsAsync()
+        public virtual async Task<APIResponseSymbols> GetSymbolsAsync()
         {
             return await _apiService.EndpointMarketSymbolsAsync();
         }

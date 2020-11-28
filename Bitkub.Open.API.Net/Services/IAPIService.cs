@@ -1,14 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using Bitkub.Open.API.Net.Models;
+using System.Threading.Tasks;
 
 namespace Bitkub.Open.API.Net.Services
 {
     public partial interface IAPIService
     {
-        Task<string> EndpointStatusAsync();
-        Task<string> EndpointServerTimeAsync();
+        Task<APIResponseStatus> EndpointStatusAsync();
+        Task<APIResponseTimeStamp> EndpointServerTimeAsync();
 
         #region Non-Secure endpoints
-        Task<string> EndpointMarketSymbolsAsync();
+        Task<APIResponseSymbols> EndpointMarketSymbolsAsync();
         Task<string> EndpointMarketTickerAsync(string symbol);
         Task<string> EndpointMarketTradesAsync(string symbol, int limit);
         Task<string> EndpointMarketBidsAsync(string symbol, int limit);
@@ -17,6 +18,8 @@ namespace Bitkub.Open.API.Net.Services
         Task<string> EndpointMarketTradingviewAsync(string symbol, int chartInterval, int timeStampFrom, int timeStampTo);
         Task<string> EndpointMarketDepthAsync(string symbol, int limit);
         #endregion
-
+        #region Secure endpoint
+        Task<string> EndpointMarketWalletAsync(string ApiKey);
+        #endregion
     }
 }

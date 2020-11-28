@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using Bitkub.Open.API.Net.Models;
+using System.Threading.Tasks;
 
 namespace Bitkub.Open.API.Net
 {
@@ -8,7 +9,7 @@ namespace Bitkub.Open.API.Net
         /// List all available symbols
         /// </summary>
         /// <returns>All available symbols</returns>
-        Task<string> GetSymbolsAsync();
+        Task<APIResponseSymbols> GetSymbolsAsync();
         /// <summary>
         /// Get ticker information, String symbol (optional)
         /// List all ticker by the string symbol is empty 

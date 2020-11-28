@@ -16,28 +16,25 @@ namespace ConsoleApp
             //MarketAsksAsync().Wait();
             //MarketBooksAsync().Wait();
             //MarketTradingviewAsync().Wait();
-            MarketDepthAsync().Wait();
+            //MarketDepthAsync().Wait();
         }
 
         static async Task StatusAsync()
         {
             IBitkubAPIStatus api = new BitkubAPIStatus();
             var result = await api.GetStatusAsync();
-            Console.WriteLine(result);
         }
 
         static async Task ServerTimeAsync()
         {
             IBitkubAPIStatus api = new BitkubAPIStatus();
             var result = await api.GetServerTimeAsync();
-            Console.WriteLine(result);
         }
 
         static async Task MarketSymbolsAsync()
         {
             IBitkubMarket market = new BitkubMarket();
             var result = await market.GetSymbolsAsync();
-            Console.WriteLine(result);
         }
 
         static async Task MarketTickerAsync()
