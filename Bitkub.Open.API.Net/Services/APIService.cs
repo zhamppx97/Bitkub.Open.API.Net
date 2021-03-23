@@ -10,7 +10,7 @@ namespace Bitkub.Open.API.Net.Services
 {
     public partial class APIService : IAPIService
     {
-        private readonly BitkubAPI _bitkubAPI = new BitkubAPI();
+        private readonly BitkubAPI _bitkubAPI = new();
         private readonly string _serviceBaseUrl;
 
         public APIService()
@@ -76,7 +76,7 @@ namespace Bitkub.Open.API.Net.Services
             return data;
         }
 
-        public virtual async Task<string> EndpointMarketTickerAsync(string symbol)
+        public virtual async Task<MarketTicker> EndpointMarketTickerAsync(string symbol)
         {
             var url = Endpoints.Market.Ticker(_serviceBaseUrl);
             var client = new RestClient(url)
@@ -86,11 +86,11 @@ namespace Bitkub.Open.API.Net.Services
             var request = new RestRequest(Method.GET);
             request.AddParameter("sym", symbol, ParameterType.QueryString);
             var response = await client.ExecuteAsync(request);
-            var responseJsonString = JsonConvert.SerializeObject(response.Content);
-            return responseJsonString;
+            var responseContent = JsonConvert.DeserializeObject<MarketTicker>(response.Content);
+            return responseContent;
         }
 
-        public virtual async Task<string> EndpointMarketTradesAsync(string symbol, int limit)
+        public virtual async Task<Trades> EndpointMarketTradesAsync(string symbol, int limit)
         {
             var url = Endpoints.Market.Trades(_serviceBaseUrl);
             var client = new RestClient(url)
@@ -101,8 +101,8 @@ namespace Bitkub.Open.API.Net.Services
             request.AddParameter("sym", symbol, ParameterType.QueryString);
             request.AddParameter("lmt", limit, ParameterType.QueryString);
             var response = await client.ExecuteAsync(request);
-            var responseJsonString = JsonConvert.SerializeObject(response.Content);
-            return responseJsonString;
+            var responseContent = JsonConvert.DeserializeObject<Trades>(response.Content);
+            return responseContent;
         }
 
         public virtual async Task<string> EndpointMarketBidsAsync(string symbol, int limit)

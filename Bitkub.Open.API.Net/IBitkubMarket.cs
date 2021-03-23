@@ -16,14 +16,14 @@ namespace Bitkub.Open.API.Net
         /// </summary>
         /// <param name="symbol">String The symbol (optional)</param>
         /// <returns>Ticker information</returns>
-        Task<string> GetTickerAsync(string symbol);
+        Task<MarketTicker> GetTickerAsync(string symbol);
         /// <summary>
         /// List recent trades
         /// </summary>
         /// <param name="symbol">The symbol</param>
         /// <param name="limit">No. of limit to query recent trades</param>
         /// <returns>Recent trades</returns>
-        Task<string> GetTradesAsync(string symbol, int limit);
+        Task<Trades> GetTradesAsync(string symbol, int limit);
         /// <summary>
         /// List open buy orders
         /// </summary>

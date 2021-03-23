@@ -22,7 +22,7 @@ namespace Bitkub.Open.API.Net
         /// </summary>
         /// <param name="symbol">String The symbol (optional)</param>
         /// <returns>Ticker information</returns>
-        public virtual async Task<string> GetTickerAsync(string symbol)
+        public virtual async Task<MarketTicker> GetTickerAsync(string symbol)
         {
             return await _apiService.EndpointMarketTickerAsync(symbol);
         }
@@ -32,7 +32,7 @@ namespace Bitkub.Open.API.Net
         /// <param name="symbol">The symbol</param>
         /// <param name="limit">No. of limit to query recent trades</param>
         /// <returns>Recent trades</returns>
-        public virtual async Task<string> GetTradesAsync(string symbol, int limit)
+        public virtual async Task<Trades> GetTradesAsync(string symbol, int limit)
         {
             return await _apiService.EndpointMarketTradesAsync(symbol, limit);
         }
