@@ -7,6 +7,7 @@ namespace Bitkub.Open.API.Net.Models
         public THB_AAVE THB_AAVE { get; set; }
         public THB_ABT THB_ABT { get; set; }
         public THB_ADA THB_ADA { get; set; }
+        public THB_ALPHA THB_ALPHA { get; set; }
         public THB_BAND THB_BAND { get; set; }
         public THB_BAT THB_BAT { get; set; }
         public THB_BCH THB_BCH { get; set; }
@@ -14,14 +15,15 @@ namespace Bitkub.Open.API.Net.Models
         public THB_BSV THB_BSV { get; set; }
         public THB_BTC THB_BTC { get; set; }
         public THB_COMP THB_COMP { get; set; }
+        public THB_CRV THB_CRV { get; set; }
         public THB_CVC THB_CVC { get; set; }
         public THB_DAI THB_DAI { get; set; }
         public THB_DOGE THB_DOGE { get; set; }
         public THB_DOT THB_DOT { get; set; }
+        public THB_ENJ THB_ENJ { get; set; }
         public THB_ETH THB_ETH { get; set; }
         public THB_EVX THB_EVX { get; set; }
         public THB_GLM THB_GLM { get; set; }
-        public THB_INF THB_INF { get; set; }
         public THB_IOST THB_IOST { get; set; }
         public THB_JFIN THB_JFIN { get; set; }
         public THB_KNC THB_KNC { get; set; }
@@ -80,6 +82,22 @@ namespace Bitkub.Open.API.Net.Models
         public string prevOpen { get; set; }
     }
     public class THB_ADA
+    {
+        public string id { get; set; }
+        public string last { get; set; }
+        public string lowestAsk { get; set; }
+        public string highestBid { get; set; }
+        public string percentChange { get; set; }
+        public string baseVolume { get; set; }
+        public string quoteVolume { get; set; }
+        public string isFrozen { get; set; }
+        public string high24hr { get; set; }
+        public string low24hr { get; set; }
+        public string change { get; set; }
+        public string prevClose { get; set; }
+        public string prevOpen { get; set; }
+    }
+    public class THB_ALPHA
     {
         public string id { get; set; }
         public string last { get; set; }
@@ -207,6 +225,22 @@ namespace Bitkub.Open.API.Net.Models
         public string prevClose { get; set; }
         public string prevOpen { get; set; }
     }
+    public class THB_CRV
+    {
+        public string id { get; set; }
+        public string last { get; set; }
+        public string lowestAsk { get; set; }
+        public string highestBid { get; set; }
+        public string percentChange { get; set; }
+        public string baseVolume { get; set; }
+        public string quoteVolume { get; set; }
+        public string isFrozen { get; set; }
+        public string high24hr { get; set; }
+        public string low24hr { get; set; }
+        public string change { get; set; }
+        public string prevClose { get; set; }
+        public string prevOpen { get; set; }
+    }
     public class THB_CVC
     {
         public string id { get; set; }
@@ -271,6 +305,22 @@ namespace Bitkub.Open.API.Net.Models
         public string prevClose { get; set; }
         public string prevOpen { get; set; }
     }
+    public class THB_ENJ
+    {
+        public string id { get; set; }
+        public string last { get; set; }
+        public string lowestAsk { get; set; }
+        public string highestBid { get; set; }
+        public string percentChange { get; set; }
+        public string baseVolume { get; set; }
+        public string quoteVolume { get; set; }
+        public string isFrozen { get; set; }
+        public string high24hr { get; set; }
+        public string low24hr { get; set; }
+        public string change { get; set; }
+        public string prevClose { get; set; }
+        public string prevOpen { get; set; }
+    }
     public class THB_ETH
     {
         public string id { get; set; }
@@ -304,22 +354,6 @@ namespace Bitkub.Open.API.Net.Models
         public string prevOpen { get; set; }
     }
     public class THB_GLM
-    {
-        public string id { get; set; }
-        public string last { get; set; }
-        public string lowestAsk { get; set; }
-        public string highestBid { get; set; }
-        public string percentChange { get; set; }
-        public string baseVolume { get; set; }
-        public string quoteVolume { get; set; }
-        public string isFrozen { get; set; }
-        public string high24hr { get; set; }
-        public string low24hr { get; set; }
-        public string change { get; set; }
-        public string prevClose { get; set; }
-        public string prevOpen { get; set; }
-    }
-    public class THB_INF
     {
         public string id { get; set; }
         public string last { get; set; }
