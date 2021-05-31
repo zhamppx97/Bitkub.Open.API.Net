@@ -17,7 +17,7 @@ namespace ConsoleApp
             //MarketBooksAsync().Wait();
             //MarketTradingviewAsync().Wait();
             //MarketDepthAsync().Wait();
-            MarketBalancesAsync().Wait();
+            //MarketBalancesAsync().Wait();
         }
 
         static async Task StatusAsync()
@@ -43,7 +43,7 @@ namespace ConsoleApp
             IBitkubMarket market = new BitkubMarket();
             string sym = null; // ex THB_BTC
             var result = await market.GetTickerAsync(sym);
-            Console.WriteLine(result);
+            Console.WriteLine(result.THB_KUB.last);
         }
 
         static async Task MarketBidsAsync()
