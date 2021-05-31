@@ -61,5 +61,7 @@ namespace Bitkub.Open.API.Net
         /// <param name="limit">Depth size</param>
         /// <returns>Depth information</returns>
         Task<string> GetDepthAsync(string symbol, int limit);
+
+        Task<string> GetBalancesAsync(string ApiKey, string ApiSecret);
     }
 }

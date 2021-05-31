@@ -19,7 +19,7 @@ namespace Bitkub.Open.API.Net.Services
         Task<string> EndpointMarketDepthAsync(string symbol, int limit);
         #endregion
         #region Secure endpoint
-        Task<string> EndpointMarketWalletAsync(string ApiKey);
+        Task<string> EndpointMarketBalancesAsync(string ApiKey, string ApiSecret);
         #endregion
     }
 }

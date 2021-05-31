@@ -4,6 +4,8 @@ using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Bitkub.Open.API.Net.Services
@@ -183,9 +185,9 @@ namespace Bitkub.Open.API.Net.Services
         }
         #endregion
         #region Secure endpoint
-        public virtual async Task<string> EndpointMarketWalletAsync(string ApiKey)
+        public virtual async Task<string> EndpointMarketBalancesAsync(string ApiKey, string ApiSecret)
         {
-            var url = Endpoints.Market.Wallet(_serviceBaseUrl);
+            var url = Endpoints.Market.Balances(_serviceBaseUrl);
             var client = new RestClient(url)
             {
                 Timeout = -1
@@ -194,7 +196,27 @@ namespace Bitkub.Open.API.Net.Services
             request.AddHeader("Accept", "application/json");
             request.AddHeader("Content-type", "application/json");
             request.AddHeader("X-BTK-APIKEY", ApiKey);
-            //request.AddJsonBody();
+
+            var serverTime = await EndpointServerTimeAsync();
+            var timeStamp = serverTime.Result.TimeStamp;
+
+            BalancesPayload payload = new();
+            payload.ts = timeStamp;
+
+            using var hmacsha256 = new HMACSHA256(Encoding.UTF8.GetBytes(ApiSecret));
+            var hash = hmacsha256.ComputeHash(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(payload)));
+
+            StringBuilder hex = new(hash.Length * 2);
+            foreach (byte b in hash)
+            {
+                hex.AppendFormat("{0:x2}", b);
+            }
+
+            BalancesPayloadWithSig payloadWithSig = new();
+            payloadWithSig.ts = timeStamp;
+            payloadWithSig.sig = hex.ToString();
+
+            request.AddJsonBody(payloadWithSig);
             var response = await client.ExecuteAsync(request);
             var responseJsonString = JsonConvert.SerializeObject(response.Content);
             return responseJsonString;

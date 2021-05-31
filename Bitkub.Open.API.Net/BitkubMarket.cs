@@ -88,5 +88,10 @@ namespace Bitkub.Open.API.Net
         {
             return await _apiService.EndpointMarketDepthAsync(symbol, limit);
         }
+
+        public virtual async Task<string> GetBalancesAsync(string ApiKey, string ApiSecret)
+        {
+            return await _apiService.EndpointMarketBalancesAsync(ApiKey, ApiSecret);
+        }
     }
 }
